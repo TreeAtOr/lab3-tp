@@ -149,6 +149,17 @@ void loadWorkers(std::string filename) {
   }
 }
 
+double calcSalary(int workerNumber, double amount) {
+  if (workerNumber >= w_size) {
+    std::cout << "Enter correct index" << std::endl;
+    return -1;
+  }
+  Worker *worker = workers[workerNumber];
+  if (typeid(worker) == typeid(ShareWorker))
+    return worker->getSalary(amount) / 100;
+  return worker->getSalary(amount);
+}
+
 int main() {
   std::cin.exceptions(std::iostream::failbit | std::iostream::badbit);
 
@@ -193,6 +204,18 @@ int main() {
         std::cin >> d;
         deleteWorker(d);
         continue;
+      }
+      if (tmp == "clc") {
+        int d;
+        std::cout << "Enter worker index" << std::endl;
+        std::cin >> d;
+        double amount;
+        std::cout << "Enter amount" << std::endl;
+        std::cin >> amount;
+        std::cout << "Calculated salary: " << calcSalary(d, amount)
+                  << std::endl;
+        continue;
+        
       }
       if (tmp == "q")
         return 0;

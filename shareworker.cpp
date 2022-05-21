@@ -10,5 +10,5 @@ ShareWorker::ShareWorker(
         this->procentage = procentage;
 }
 double ShareWorker::getSalary(double _){
-    return this->procentage * _;
+    return this->procentage * _ ;
 }
