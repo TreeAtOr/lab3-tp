@@ -225,6 +225,7 @@ int main() {
                 << "del - to delete worker" << std::endl
                 << "lod - to load workers" << std::endl
                 << "sav - to save workers" << std::endl
+                << "clc - to calculate salary" <<  std::endl
                 << "q - to quit" << std::endl
                 << "prt - to print" << std::endl;
     } catch (std::exception e) {
